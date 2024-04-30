@@ -11,19 +11,12 @@ class main_screen extends StatefulWidget {
 }
 
 class _main_screenState extends State<main_screen> {
+  int selectedIndex = 1;
   @override
   Widget build(BuildContext context) {
-    int selectedIndex = 0;
-    final screens = [
-      const home_view(),
-      const product_view(),
-      const carrito_view()
-    ];
+    final screens = [home_view(), product_view(), carrito_view()];
     return Scaffold(
-      body: IndexedStack(
-        index: selectedIndex,
-        children: screens,
-      ),
+      body: IndexedStack(index: selectedIndex, children: screens),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "inicio"),
@@ -32,7 +25,6 @@ class _main_screenState extends State<main_screen> {
         ],
         onTap: (value) {
           setState(() {
-            print(value);
             selectedIndex = value;
           });
         },
