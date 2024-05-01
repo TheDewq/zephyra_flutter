@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_plus/flutter_swiper_plus.dart';
-import 'package:zephyra_flutter/ui/views/home_items/bottom_carrusel_item.dart';
+import "package:zephyra_flutter/ui/views/general_items/radius_corners.dart";
+import "package:zephyra_flutter/ui/views/home_items/bottom_carrusel_item.dart";
 
 class home_view extends StatelessWidget {
   final top_images = [
@@ -13,28 +14,35 @@ class home_view extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: Column(
-      children: [titulo(), top_carrusel(top_images), secciones()],
+      children: [
+        titulo(),
+        radius_corners(top_carrusel(top_images), height: 250),
+        secciones(),
+        //Bottom_carrusel(top_images)
+      ],
     ));
   }
 }
 
 Widget titulo() {
-  return Text("Titulo");
+  return Container(
+    child: Text(
+      "Titulo",
+      style: TextStyle(fontSize: 25),
+    ),
+    margin: EdgeInsets.all(15),
+  );
 }
 
 Widget top_carrusel(imagenes) {
-  return Container(
-    width: double.infinity,
-    height: 250,
-    child: Swiper(
-        itemBuilder: (BuildContext context, int index) {
-          return new Image.network(
-            imagenes[index],
-            fit: BoxFit.fill,
-          );
-        },
-        itemCount: 2),
-  );
+  return Swiper(
+      itemBuilder: (BuildContext context, int index) {
+        return new Image.network(
+          imagenes[index],
+          fit: BoxFit.fill,
+        );
+      },
+      itemCount: 2);
 }
 
 Widget secciones() {
@@ -106,9 +114,11 @@ Widget secciones() {
 
 Widget Bottom_carrusel(imagenes) {
   return Container(
-      child: Swiper(
-          itemBuilder: (BuildContext context, int index) {
-            bottom_carrusel_item(imagenes[index]);
-          },
-          itemCount: 5));
+    child: Swiper(
+      itemBuilder: (BuildContext context, int index) {
+        return BottomCarruselItem(imagen: imagenes[index]);
+      },
+      itemCount: 2,
+    ),
+  );
 }
