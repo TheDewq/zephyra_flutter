@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zephyra_flutter/ui/screens/product_details_screen.dart';
 import 'package:zephyra_flutter/ui/views/carrito_view.dart';
 import 'package:zephyra_flutter/ui/views/home_view.dart';
 import 'package:zephyra_flutter/ui/views/product_view.dart';
@@ -14,7 +15,7 @@ class _main_screenState extends State<main_screen> {
   int selectedIndex = 1;
   @override
   Widget build(BuildContext context) {
-    final screens = [home_view(), product_view(), carrito_view()];
+    final screens = [product_details_screem(), product_view(), carrito_view()];
     return Scaffold(
       body: IndexedStack(index: selectedIndex, children: screens),
       bottomNavigationBar: BottomNavigationBar(

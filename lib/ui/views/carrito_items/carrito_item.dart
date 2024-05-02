@@ -3,12 +3,14 @@ import 'package:flutter/widgets.dart';
 import "package:zephyra_flutter/singleton/carrito_manager.dart";
 
 class carrito_item extends StatefulWidget {
+  final Function() notifyParent;
   const carrito_item(
       {Key? key,
       required this.img,
       required this.nombre,
       required this.precio,
-      required this.ref})
+      required this.ref,
+      required this.notifyParent})
       : super(key: key);
 
   final String nombre;
@@ -78,6 +80,7 @@ class _carrito_itemState extends State<carrito_item> {
                       }
                       if (cantidad <= 0) {
                         carrito_manager().eliminar_item(widget.ref);
+                        widget.notifyParent();
                       }
                     });
                   },

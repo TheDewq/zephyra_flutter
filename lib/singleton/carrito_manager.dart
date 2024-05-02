@@ -1,5 +1,8 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
+import 'package:zephyra_flutter/ui/views/carrito_items/carrito_item.dart';
+
 class carrito_manager {
   static carrito_manager? _instance;
 
