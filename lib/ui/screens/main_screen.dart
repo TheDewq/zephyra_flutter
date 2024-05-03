@@ -15,7 +15,7 @@ class _main_screenState extends State<main_screen> {
   int selectedIndex = 1;
   @override
   Widget build(BuildContext context) {
-    final screens = [product_details_screem(), product_view(), carrito_view()];
+    final screens = [home_view(), product_view(), carrito_view()];
     return Scaffold(
       body: IndexedStack(index: selectedIndex, children: screens),
       bottomNavigationBar: BottomNavigationBar(

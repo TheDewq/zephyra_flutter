@@ -3,8 +3,16 @@ import 'package:flutter_swiper_plus/flutter_swiper_plus.dart';
 import 'package:zephyra_flutter/ui/views/product_view.dart';
 
 class product_details_screem extends StatefulWidget {
-  const product_details_screem({super.key});
-
+  const product_details_screem(
+      {super.key,
+      required this.imgs,
+      required this.nombre,
+      required this.precio,
+      required this.caracteristicas});
+  final List imgs;
+  final String nombre;
+  final String precio;
+  final List<List> caracteristicas;
   @override
   State<product_details_screem> createState() => _product_details_screemState();
 }
@@ -34,7 +42,7 @@ class ProductoView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Text(
-              "TextView",
+              "rwerer",
               style: TextStyle(
                 fontFamily: "Alata",
                 fontSize: 14.0,
