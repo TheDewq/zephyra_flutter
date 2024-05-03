@@ -44,8 +44,8 @@ class _product_viewState extends State<product_view> {
   Widget build(BuildContext context) {
     return ListView(
         children: List.generate(lista.length, (index) {
-      return product_item(
-          lista[index][0], lista[index][1], lista[index][2], lista[index][3]);
+      return product_item(lista[index][0], lista[index][1], lista[index][2],
+          lista[index][3], context);
     }));
   }
 }

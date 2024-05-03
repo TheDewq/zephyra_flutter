@@ -15,7 +15,6 @@ class carrito_manager {
   int total = 0;
 
   void agregar_producto(producto) {
-    print(in_list(producto));
     if (in_list(producto)) {
       print("ya esta");
     } else {

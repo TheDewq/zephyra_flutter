@@ -94,7 +94,7 @@ class ProductoView extends StatelessWidget {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      // Handle close button tap
+                      Navigator.pop(context);
                     },
                   ),
                 ),
