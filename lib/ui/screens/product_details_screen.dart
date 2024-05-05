@@ -3,31 +3,19 @@ import 'package:flutter_swiper_plus/flutter_swiper_plus.dart';
 import 'package:zephyra_flutter/singleton/carrito_manager.dart';
 import 'package:zephyra_flutter/ui/views/product_view.dart';
 
-class product_details_screem extends StatefulWidget {
-  const product_details_screem(
+class ProductoView extends StatelessWidget {
+  final List imgs;
+  final int ref;
+  final String nombre;
+  final String precio;
+  final List<List> caracteristicas;
+  const ProductoView(
       {super.key,
       required this.ref,
       required this.imgs,
       required this.nombre,
       required this.precio,
       required this.caracteristicas});
-  final List imgs;
-  final int ref;
-  final String nombre;
-  final String precio;
-  final List<List> caracteristicas;
-  @override
-  State<product_details_screem> createState() => _product_details_screemState();
-}
-
-class _product_details_screemState extends State<product_details_screem> {
-  @override
-  Widget build(BuildContext context) {
-    return ProductoView();
-  }
-}
-
-class ProductoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,7 +102,7 @@ class ProductoView extends StatelessWidget {
                           backgroundColor: Colors.green),
                       onPressed: () {
                         carrito_manager()
-                            .agregar_producto([ref, nombre, precio, img]);
+                            .agregar_producto([ref, nombre, precio, imgs]);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,

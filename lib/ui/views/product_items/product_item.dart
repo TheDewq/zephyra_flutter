@@ -13,7 +13,8 @@ Widget product_item(ref, nombre, precio, img, context) {
         GestureDetector(
             onTap: () {
               final route = MaterialPageRoute(builder: (BuildContext context) {
-                return product_details_screem(
+                return ProductoView(
+                    ref: int.parse(ref),
                     imgs: ["imgs", ""],
                     nombre: nombre,
                     precio: precio,
