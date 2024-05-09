@@ -13,6 +13,8 @@ class carrito_manager {
 
   List current_list =
       []; // cada item debe ir de la siguiente manera [referencia, nombre, precio, url de imagen, cantidad]
+  List current_list_productos =
+      []; //[referencia, nombre, precio, url de imagen]
   int total = 0;
   String raw_rpt_db = "";
   late List<dynamic> lista;
@@ -64,7 +66,7 @@ class carrito_manager {
       var img = item["img"]
           .toString()
           .substring(1, item["img"].toString().length - 1);
-      current_list.add([
+      current_list_productos.add([
         item["id"],
         item["nombre"],
         item["precio"],

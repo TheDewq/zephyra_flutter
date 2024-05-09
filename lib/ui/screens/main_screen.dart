@@ -12,7 +12,7 @@ class main_screen extends StatefulWidget {
 }
 
 class _main_screenState extends State<main_screen> {
-  int selectedIndex = 1;
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     final screens = [home_view(), product_view(), carrito_view()];

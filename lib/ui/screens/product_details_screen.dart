@@ -1,10 +1,12 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_plus/flutter_swiper_plus.dart';
 import 'package:zephyra_flutter/singleton/carrito_manager.dart';
 import 'package:zephyra_flutter/ui/views/product_view.dart';
 
 class ProductoView extends StatelessWidget {
-  final List imgs;
+  final String imgs;
   final int ref;
   final String nombre;
   final String precio;
@@ -26,14 +28,14 @@ class ProductoView extends StatelessWidget {
             flex: 1,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Container(
-                  height: 150, child: ImageCarouselWidget(img: ["", ""])),
+              child:
+                  Container(height: 150, child: ImageCarouselWidget(img: imgs)),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Text(
-              "rwerer",
+              ref.toString(),
               style: TextStyle(
                 fontFamily: "Alata",
                 fontSize: 14.0,
@@ -51,7 +53,7 @@ class ProductoView extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "TextView",
+                  precio,
                   style: TextStyle(
                     fontFamily: "Alata",
                     fontSize: 34.0,
@@ -133,13 +135,13 @@ class ProductoView extends StatelessWidget {
 
 class ImageCarouselWidget extends StatelessWidget {
   const ImageCarouselWidget({super.key, required this.img});
-  final List img;
+  final String img;
   @override
   Widget build(BuildContext context) {
     return Swiper(
         itemBuilder: (BuildContext context, int index) {
           return Image.network(
-            img[index],
+            img,
             fit: BoxFit.fill,
           );
         },

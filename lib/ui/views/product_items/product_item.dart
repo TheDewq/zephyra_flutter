@@ -15,7 +15,7 @@ Widget product_item(ref, nombre, precio, img, context) {
               final route = MaterialPageRoute(builder: (BuildContext context) {
                 return ProductoView(
                     ref: int.parse(ref),
-                    imgs: ["imgs", ""],
+                    imgs: img,
                     nombre: nombre,
                     precio: precio,
                     caracteristicas: [
