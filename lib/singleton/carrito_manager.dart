@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -13,7 +14,8 @@ class carrito_manager {
   List current_list =
       []; // cada item debe ir de la siguiente manera [referencia, nombre, precio, url de imagen, cantidad]
   int total = 0;
-
+  String raw_rpt_db = "";
+  late List<dynamic> lista;
   void agregar_producto(producto) {
     if (in_list(producto)) {
       print("ya esta");
@@ -51,6 +53,24 @@ class carrito_manager {
         current_list.remove(element);
         break; // Termina el bucle cuando se cumple la condición
       }
+    }
+  }
+
+  void set_db_rpt(rpt) {
+    raw_rpt_db = rpt;
+    lista = jsonDecode(raw_rpt_db);
+    for (int i = 0; i < lista.length; i++) {
+      Map<String, dynamic> item = lista[i];
+      var img = item["img"]
+          .toString()
+          .substring(1, item["img"].toString().length - 1);
+      current_list.add([
+        item["id"],
+        item["nombre"],
+        item["precio"],
+        "https://solar-blasts.000webhostapp.com/img/" + img,
+        "1"
+      ]);
     }
   }
 }
